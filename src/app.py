@@ -42,11 +42,11 @@ def run() -> int:
 
         # 执行签到任务
         autoSignIn(page)
-        logging.info("已执行签到任务")
+        logging.info("已完成签到任务")
 
         # 执行评论任务
         autoCommit(page)
-        logging.info("已执行评论任务")
+        logging.info("已完成评论任务")
 
     logging.info("任务完成")
 
@@ -66,7 +66,7 @@ def autoSignIn(page: sync_api.Page) -> None:
     logging.info("已登录，即将进行签到")
 
     # 检查是否已签到
-    if page.locator("uni-button:has(> .yiqian)").is_visible():
+    if page.locator("uni-button:has(> .yiqian)"):
         logging.info("已签到，无需重复签到")
         return
     logging.info("未签到，即将进行签到")
